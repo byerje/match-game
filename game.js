@@ -1,10 +1,96 @@
-const symbols = [
-  "🐱", "🐰", "🧸", "🐶", "🐼", "🦊", "🐻", "🐨", "🐷",
-  "🐸", "🐹", "🦁", "🐯", "🐵", "🦄", "🐑", "🦝", "🐧"
-];
+const themes = {
+  baseball: {
+    label: "Baseball",
+    icon: "⚾",
+    symbols: ["⚾", "🥎", "🧢", "🧤", "🏟️", "🏆", "🥇", "🥈", "🥉", "📣", "🎟️", "👟", "🧦", "👕", "🩳", "🥤", "🚩", "🚌"]
+  },
+  sports: {
+    label: "Sports",
+    icon: "🏅",
+    symbols: ["⚽", "🏀", "🏈", "⚾", "🎾", "🏐", "🏉", "🥏", "🏓", "🏸", "🥊", "🛹", "🏒", "🏑", "🥅", "🏆", "🥇", "🏋️"]
+  },
+  animals: {
+    label: "Cuddly animals",
+    icon: "🐻",
+    symbols: ["🐱", "🐰", "🧸", "🐶", "🐼", "🦊", "🐻", "🐨", "🐷", "🐸", "🐹", "🦁", "🐯", "🐵", "🦄", "🐑", "🦝", "🐧"]
+  },
+  fruit: {
+    label: "Fruit",
+    icon: "🍓",
+    symbols: ["🍎", "🍌", "🍇", "🍊", "🍓", "🍐", "🍉", "🍒", "🍍", "🥝", "🥑", "🍑", "🫐", "🥥", "🍋", "🍈", "🥭", "🍅"]
+  },
+  fantasy: {
+    label: "Fantasy",
+    icon: "🦄",
+    symbols: ["🌈", "🦄", "🐉", "🧚", "🪄", "🔮", "🏰", "👑", "🧙", "🧝", "🪽", "✨", "💎", "🌙", "☄️", "🪷", "🐲", "⭐"]
+  },
+  nature: {
+    label: "Nature",
+    icon: "🌻",
+    symbols: ["🌳", "🌲", "🌴", "🌵", "🌷", "🌻", "🌼", "🌸", "🍄", "🌿", "🍁", "🍂", "🌱", "🌾", "🌺", "🪷", "🪺", "🪻"]
+  },
+  flags: {
+    label: "Country flags",
+    icon: "🌍",
+    symbols: ["🇺🇸", "🇨🇦", "🇲🇽", "🇧🇷", "🇬🇧", "🇫🇷", "🇩🇪", "🇮🇹", "🇪🇸", "🇯🇵", "🇰🇷", "🇨🇳", "🇮🇳", "🇦🇺", "🇳🇿", "🇿🇦", "🇪🇬", "🇮🇪"]
+  },
+  princesses: {
+    label: "Princesses",
+    icon: "👑",
+    symbols: ["👑", "👸", "🏰", "👗", "💎", "🪞", "🥿", "🪷", "🦢", "🦄", "🌹", "🕯️", "🎀", "🪭", "🧚", "✨", "💐", "⭐"]
+  },
+  baby: {
+    label: "Baby objects",
+    icon: "🧸",
+    symbols: ["🍼", "🧸", "🪇", "🪁", "🎈", "🧦", "🧢", "🧩", "🪀", "🚂", "🪆", "🛁", "🧼", "🪥", "🧺", "🥄", "🎠", "🙂"]
+  },
+  fishing: {
+    label: "Fishing",
+    icon: "🎣",
+    symbols: ["🎣", "🐟", "🐠", "🐡", "🦈", "🪝", "🛶", "🚤", "🪣", "🧢", "🧤", "🌊", "⚓", "🦀", "🦞", "🐚", "🪱", "🧺"]
+  },
+  books: {
+    label: "Colorful books",
+    icon: "📚",
+    symbols: ["📕", "📗", "📘", "📙", "📔", "📒", "📓", "📚", "📖", "🟥", "🟧", "🟨", "🟩", "🟦", "🟪", "🟫", "⬛", "⬜"]
+  },
+  pokemon: {
+    label: "Pokémon",
+    icon: "⚡",
+    symbols: ["⚡", "🔥", "💧", "🍃", "🪨", "🌙", "☀️", "👾", "🐲", "🦊", "🐢", "🐸", "🐭", "🐦", "🦋", "🐺", "🥚", "💎"]
+  },
+  space: {
+    label: "Outer space",
+    icon: "🪐",
+    symbols: ["🪐", "🌍", "🌕", "🌙", "⭐", "🌟", "☄️", "🚀", "🛸", "👽", "🌌", "🔭", "🛰️", "🌞", "🌑", "🌠", "🪨", "👩‍🚀"]
+  },
+  horses: {
+    label: "Horses",
+    icon: "🐴",
+    symbols: ["🐴", "🐎", "🦄", "🏇", "🧲", "🪮", "🧹", "🥕", "🍎", "🌾", "🧺", "🏆", "🦓", "🫏", "🌻", "🪢", "👢", "🐾"]
+  },
+  minecraft: {
+    label: "Minecraft",
+    icon: "🟩",
+    symbols: ["🟩", "🟫", "⬜", "⬛", "🪨", "🪵", "🌱", "💎", "⛏️", "🪓", "🧱", "🕯️", "🪣", "🧭", "🗡️", "🛡️", "🐑", "🐷"]
+  },
+  dancing: {
+    label: "Dancing",
+    icon: "💃",
+    symbols: ["💃", "🕺", "🩰", "👯", "🪩", "🎶", "🎵", "🎼", "🎤", "🎹", "🥁", "🎷", "🎺", "🎻", "🪘", "🪇", "🎸", "🎧"]
+  },
+  candy: {
+    label: "Candy",
+    icon: "🍬",
+    symbols: ["🍬", "🍭", "🍫", "🍩", "🧁", "🍰", "🍪", "🍡", "🍦", "🍨", "🍧", "🍮", "🎂", "🍯", "🥧", "🍿", "🧋", "🥮"]
+  }
+};
 
 const gameCard = document.querySelector(".game-card");
 const board = document.querySelector("#board");
+const themeDialog = document.querySelector("#theme-dialog");
+const themeOptions = document.querySelector("#theme-options");
+const gameThemeName = document.querySelector("#game-theme-name");
 const movesDisplay = document.querySelector("#moves");
 const timeDisplay = document.querySelector("#time");
 const pairsDisplay = document.querySelector("#pairs");
@@ -24,6 +110,8 @@ let startedAt = null;
 let timerInterval = null;
 let mismatchTimeout = null;
 let gameActive = false;
+let activeTheme = "animals";
+let pendingTheme = activeTheme;
 
 function shuffle(items) {
   for (let i = items.length - 1; i > 0; i -= 1) {
@@ -57,7 +145,7 @@ function createCard(symbol, index) {
   card.dataset.symbol = symbol;
   card.dataset.index = index;
   card.setAttribute("aria-label", `Card ${index + 1}, face down`);
-  card.innerHTML = '<span class="card-face card-back" aria-hidden="true">🐾</span><span class="card-face card-front" aria-hidden="true"></span>';
+  card.innerHTML = '<span class="card-face card-back" aria-hidden="true">✳</span><span class="card-face card-front" aria-hidden="true"></span>';
   card.querySelector(".card-front").textContent = symbol;
   card.addEventListener("click", () => revealCard(card));
   return card;
@@ -148,8 +236,24 @@ function startNewGame() {
   progress.setAttribute("aria-valuenow", "0");
   progressFill.style.width = "0%";
 
-  const deck = shuffle([...symbols.slice(0, pairCount), ...symbols.slice(0, pairCount)]);
+  const symbols = themes[activeTheme].symbols.slice(0, pairCount);
+  const deck = shuffle([...symbols, ...symbols]);
   deck.forEach((symbol, index) => board.append(createCard(symbol, index)));
+}
+
+function updateThemeSelection() {
+  themeOptions.querySelectorAll(".theme-option").forEach((button) => {
+    const selected = button.dataset.theme === pendingTheme;
+    button.classList.toggle("is-selected", selected);
+    button.setAttribute("aria-pressed", String(selected));
+  });
+}
+
+function openThemePicker() {
+  pendingTheme = activeTheme;
+  updateThemeSelection();
+  themeDialog.showModal();
+  themeOptions.querySelector(`[data-theme="${pendingTheme}"]`).focus();
 }
 
 function startGame() {
@@ -168,6 +272,42 @@ function exitGame() {
   document.querySelector("#play-game").focus();
 }
 
+Object.entries(themes).forEach(([key, theme]) => {
+  const button = document.createElement("button");
+  button.className = "theme-option";
+  button.type = "button";
+  button.dataset.theme = key;
+  button.setAttribute("aria-pressed", "false");
+
+  const icon = document.createElement("span");
+  icon.className = "theme-option-icon";
+  icon.setAttribute("aria-hidden", "true");
+  icon.textContent = theme.icon;
+
+  const label = document.createElement("span");
+  label.className = "theme-option-label";
+  label.textContent = theme.label;
+
+  button.append(icon, label);
+  button.addEventListener("click", () => {
+    pendingTheme = key;
+    updateThemeSelection();
+  });
+  themeOptions.append(button);
+});
+
+document.querySelector("#start-themed-game").addEventListener("click", () => {
+  activeTheme = pendingTheme;
+  gameThemeName.textContent = themes[activeTheme].label.toUpperCase();
+  themeDialog.close();
+  if (gameActive) startNewGame();
+  else startGame();
+});
+
+themeDialog.addEventListener("close", () => {
+  pendingTheme = activeTheme;
+});
+
 sizeButtons.forEach((button) => {
   button.addEventListener("click", () => {
     pairCount = Number(button.dataset.pairs);
@@ -180,10 +320,10 @@ sizeButtons.forEach((button) => {
   });
 });
 
-document.querySelector("#play-game").addEventListener("click", startGame);
-document.querySelector("#restart-game").addEventListener("click", startNewGame);
+document.querySelector("#play-game").addEventListener("click", openThemePicker);
+document.querySelector("#restart-game").addEventListener("click", openThemePicker);
 document.querySelector("#exit-game").addEventListener("click", exitGame);
-document.querySelector("#play-again").addEventListener("click", startNewGame);
+document.querySelector("#play-again").addEventListener("click", openThemePicker);
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && gameActive) exitGame();

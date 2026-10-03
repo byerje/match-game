@@ -1,6 +1,6 @@
 # Little Match
 
-A cozy, responsive animal memory game built with plain HTML, CSS, and JavaScript. Choose a 4 × 4 or 6 × 6 board, then play full-screen and match cuddly animal emoji. No build step or dependencies required.
+A cozy, responsive memory game built with plain HTML, CSS, and JavaScript. Choose from 17 themes, including sports, cuddly animals, fantasy, flags, baby objects, fishing, space, horses, Minecraft, dancing, and candy, plus a 4 × 4 or 6 × 6 board. Click **New game** to choose a different theme. Themes use emoji-style symbols; princess and creature themes use generic symbols rather than character artwork. No build step or dependencies required.
 
 ## Play locally
 
