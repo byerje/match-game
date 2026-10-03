@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f5ef">
+    <meta name="description" content="A little memory game. Find the matching pairs and give your brain a happy minute.">
+    <title>Little Match — a tiny memory game</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="game.js" defer></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="topbar">
+        <a class="wordmark" href="./" aria-label="Little Match home">
+          <span class="wordmark-icon" aria-hidden="true">✳</span>
+          <span>little match</span>
+        </a>
+        <span class="top-note"><span class="status-dot" aria-hidden="true"></span> a tiny brain break</span>
+      </header>
+
+      <section class="game-layout" aria-labelledby="game-title">
+        <div class="intro">
+          <p class="eyebrow">A GAME FOR YOUR IN-BETWEEN</p>
+          <h1 id="game-title">Find your<br><span>matching</span> pair.</h1>
+          <p class="intro-copy">Turn over two cards at a time. Remember what you see, trust your gut, and match them all.</p>
+          <div class="difficulty-picker" role="group" aria-label="Choose board size">
+            <button class="size-button is-selected" type="button" data-pairs="8" aria-pressed="true">Easy <span>4 × 4</span></button>
+            <button class="size-button" type="button" data-pairs="18" aria-pressed="false">A little tricky <span>6 × 6</span></button>
+          </div>
+          <button class="new-game-button" id="new-game" type="button">
+            <span aria-hidden="true">↻</span> New game
+          </button>
+          <p class="gentle-note"><span aria-hidden="true">✦</span> No rush. This is your time.</p>
+        </div>
+
+        <div class="game-card">
+          <div class="game-card-top">
+            <div class="game-label"><span class="sparkle" aria-hidden="true">✳</span> THE LITTLE MATCH GAME</div>
+            <div class="stats" aria-label="Game stats">
+              <div class="stat"><span class="stat-label">MOVES</span><strong id="moves">0</strong></div>
+              <span class="stat-divider" aria-hidden="true"></span>
+              <div class="stat"><span class="stat-label">TIME</span><strong id="time">00:00</strong></div>
+              <span class="stat-divider" aria-hidden="true"></span>
+              <div class="stat"><span class="stat-label">PAIRS</span><strong id="pairs">0 / 8</strong></div>
+            </div>
+          </div>
+          <div class="progress-track" role="progressbar" aria-label="Matched pairs" aria-valuemin="0" aria-valuemax="8" aria-valuenow="0">
+            <span class="progress-fill"></span>
+          </div>
+          <div class="board" id="board" role="group" aria-label="Matching cards"></div>
+          <div class="game-footer">
+            <span><span class="footer-icon" aria-hidden="true">♡</span> Made for a moment of calm</span>
+            <span id="game-hint">Find all 8 pairs to finish</span>
+          </div>
+          <div class="win-message" id="win-message" role="status" aria-live="polite" hidden>
+            <span class="win-icon" aria-hidden="true">✿</span>
+            <div><strong>You did it!</strong><span id="win-summary"></span></div>
+            <button id="play-again" type="button">Play again <span aria-hidden="true">↗</span></button>
+          </div>
+        </div>
+      </section>
+
+      <footer class="page-footer">
+        <span>TAKE A BREATH. TAKE A TURN.</span>
+        <span class="footer-flower" aria-hidden="true">✿</span>
+        <span>THAT’S THE WHOLE THING.</span>
+      </footer>
+    </main>
+  </body>
+</html>
