@@ -1,8 +1,9 @@
 const symbols = [
-  "🍋", "🍓", "🍐", "🍊", "🍒", "🥝", "🍉", "🍇", "🍑",
-  "🥑", "🍍", "🫐", "🌼", "🍄", "🌈", "🦋", "🐝", "🌿"
+  "🐱", "🐰", "🧸", "🐶", "🐼", "🦊", "🐻", "🐨", "🐷",
+  "🐸", "🐹", "🦁", "🐯", "🐵", "🦄", "🐑", "🦝", "🐧"
 ];
 
+const gameCard = document.querySelector(".game-card");
 const board = document.querySelector("#board");
 const movesDisplay = document.querySelector("#moves");
 const timeDisplay = document.querySelector("#time");
@@ -22,6 +23,7 @@ let locked = false;
 let startedAt = null;
 let timerInterval = null;
 let mismatchTimeout = null;
+let gameActive = false;
 
 function shuffle(items) {
   for (let i = items.length - 1; i > 0; i -= 1) {
@@ -55,7 +57,7 @@ function createCard(symbol, index) {
   card.dataset.symbol = symbol;
   card.dataset.index = index;
   card.setAttribute("aria-label", `Card ${index + 1}, face down`);
-  card.innerHTML = '<span class="card-face card-back" aria-hidden="true">✳</span><span class="card-face card-front" aria-hidden="true"></span>';
+  card.innerHTML = '<span class="card-face card-back" aria-hidden="true">🐾</span><span class="card-face card-front" aria-hidden="true"></span>';
   card.querySelector(".card-front").textContent = symbol;
   card.addEventListener("click", () => revealCard(card));
   return card;
@@ -72,7 +74,7 @@ function setCardState(card, state) {
 }
 
 function revealCard(card) {
-  if (locked || card.classList.contains("is-revealed") || card.classList.contains("is-matched")) return;
+  if (!gameActive || locked || card.classList.contains("is-revealed") || card.classList.contains("is-matched")) return;
 
   startTimer();
   setCardState(card, "revealed");
@@ -150,6 +152,22 @@ function startNewGame() {
   deck.forEach((symbol, index) => board.append(createCard(symbol, index)));
 }
 
+function startGame() {
+  gameActive = true;
+  gameCard.classList.add("is-fullscreen");
+  document.body.classList.add("game-is-fullscreen");
+  startNewGame();
+  board.querySelector(".card").focus();
+}
+
+function exitGame() {
+  gameActive = false;
+  gameCard.classList.remove("is-fullscreen");
+  document.body.classList.remove("game-is-fullscreen");
+  startNewGame();
+  document.querySelector("#play-game").focus();
+}
+
 sizeButtons.forEach((button) => {
   button.addEventListener("click", () => {
     pairCount = Number(button.dataset.pairs);
@@ -162,7 +180,13 @@ sizeButtons.forEach((button) => {
   });
 });
 
-document.querySelector("#new-game").addEventListener("click", startNewGame);
+document.querySelector("#play-game").addEventListener("click", startGame);
+document.querySelector("#restart-game").addEventListener("click", startNewGame);
+document.querySelector("#exit-game").addEventListener("click", exitGame);
 document.querySelector("#play-again").addEventListener("click", startNewGame);
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && gameActive) exitGame();
+});
 
 startNewGame();

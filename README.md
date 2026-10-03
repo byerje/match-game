@@ -1,6 +1,6 @@
 # Little Match
 
-A cozy, responsive memory matching game built with plain HTML, CSS, and JavaScript. No build step or dependencies required.
+A cozy, responsive animal memory game built with plain HTML, CSS, and JavaScript. Choose a 4 × 4 or 6 × 6 board, then play full-screen and match cuddly animal emoji. No build step or dependencies required.
 
 ## Play locally
 

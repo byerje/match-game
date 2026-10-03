@@ -6,14 +6,14 @@
     <meta name="theme-color" content="#f7f5ef">
     <meta name="description" content="A little memory game. Find the matching pairs and give your brain a happy minute.">
     <title>Little Match — a tiny memory game</title>
-    <link rel="stylesheet" href="styles.css?v=2">
-    <script src="game.js" defer></script>
+    <link rel="stylesheet" href="styles.css?v=3">
+    <script src="game.js?v=3" defer></script>
   </head>
   <body>
     <main class="page-shell">
       <header class="topbar">
         <a class="wordmark" href="./" aria-label="Little Match home">
-          <span class="wordmark-icon" aria-hidden="true">✳</span>
+          <span class="wordmark-icon" aria-hidden="true">🐾</span>
           <span>little match</span>
         </a>
         <span class="top-note"><span class="status-dot" aria-hidden="true"></span> a tiny brain break</span>
@@ -21,22 +21,22 @@
 
       <section class="game-layout" aria-labelledby="game-title">
         <div class="intro">
-          <p class="eyebrow">A GAME FOR YOUR IN-BETWEEN</p>
-          <h1 id="game-title">Find your<br><span>matching</span> pair.</h1>
-          <p class="intro-copy">Turn over two cards at a time. Remember what you see, trust your gut, and match them all.</p>
+          <p class="eyebrow">A COZY LITTLE BRAIN BREAK</p>
+          <h1 id="game-title">Find your<br><span>fuzzy</span> friends.</h1>
+          <p class="intro-copy">Meet the cuddliest little critters. Turn over two cards at a time and find all their matching friends.</p>
           <div class="difficulty-picker" role="group" aria-label="Choose board size">
             <button class="size-button is-selected" type="button" data-pairs="8" aria-pressed="true">Easy <span>4 × 4</span></button>
             <button class="size-button" type="button" data-pairs="18" aria-pressed="false">A little tricky <span>6 × 6</span></button>
           </div>
-          <button class="new-game-button" id="new-game" type="button">
-            <span aria-hidden="true">↻</span> New game
+          <button class="new-game-button" id="play-game" type="button">
+            <span aria-hidden="true">▶</span> Play Game
           </button>
-          <p class="gentle-note"><span aria-hidden="true">✦</span> No rush. This is your time.</p>
+          <p class="gentle-note"><span aria-hidden="true">♡</span> No rush. This is your time.</p>
         </div>
 
         <div class="game-card">
           <div class="game-card-top">
-            <div class="game-label"><span class="sparkle" aria-hidden="true">✳</span> THE LITTLE MATCH GAME</div>
+            <div class="game-label"><span class="sparkle" aria-hidden="true">🐾</span> THE LITTLE ANIMAL MATCH</div>
             <div class="stats" aria-label="Game stats">
               <div class="stat"><span class="stat-label">MOVES</span><strong id="moves">0</strong></div>
               <span class="stat-divider" aria-hidden="true"></span>
@@ -44,17 +44,21 @@
               <span class="stat-divider" aria-hidden="true"></span>
               <div class="stat"><span class="stat-label">PAIRS</span><strong id="pairs">0 / 8</strong></div>
             </div>
+            <div class="fullscreen-actions">
+              <button class="restart-game-button" id="restart-game" type="button">New game</button>
+              <button class="exit-game-button" id="exit-game" type="button"><span aria-hidden="true">×</span> Exit game</button>
+            </div>
           </div>
           <div class="progress-track" role="progressbar" aria-label="Matched pairs" aria-valuemin="0" aria-valuemax="8" aria-valuenow="0">
             <span class="progress-fill"></span>
           </div>
           <div class="board" id="board" role="group" aria-label="Matching cards"></div>
           <div class="game-footer">
-            <span><span class="footer-icon" aria-hidden="true">♡</span> Made for a moment of calm</span>
+            <span><span class="footer-icon" aria-hidden="true">🐾</span> A little love for your brain</span>
             <span id="game-hint">Find all 8 pairs to finish</span>
           </div>
           <div class="win-message" id="win-message" role="status" aria-live="polite" hidden>
-            <span class="win-icon" aria-hidden="true">✿</span>
+            <span class="win-icon" aria-hidden="true">🐾</span>
             <div><strong>You did it!</strong><span id="win-summary"></span></div>
             <button id="play-again" type="button">Play again <span aria-hidden="true">↗</span></button>
           </div>
@@ -63,8 +67,8 @@
 
       <footer class="page-footer">
         <span>TAKE A BREATH. TAKE A TURN.</span>
-        <span class="footer-flower" aria-hidden="true">✿</span>
-        <span>THAT’S THE WHOLE THING.</span>
+        <span class="footer-flower" aria-hidden="true">♡</span>
+        <span>YOU AND YOUR FUZZY FRIENDS.</span>
       </footer>
     </main>
   </body>
